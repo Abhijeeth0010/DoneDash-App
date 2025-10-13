@@ -1,7 +1,23 @@
 import React from "react";
 
-export default function Tasklist() {
+export default function Tasklist({tasks}, {updateTask}, {deleteTask}) {
     return (
-        <h1>List of Tasks</h1>
+        <div>
+            <ul>
+                {tasks.map((task, index) => {
+                    <li>
+                        <div>
+                            {task.text}
+                            <small>{task.priority} {task.category}</small>
+                        </div>
+
+                        <div>
+                            <button>Complete</button>
+                            <button>Delete</button>
+                        </div>
+                    </li>
+                })}
+            </ul>
+        </div>
     )
 }
