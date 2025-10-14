@@ -16,10 +16,22 @@ export default function App() {
     settasks([...tasks, task]);
   }
 
+  const updateTask = (updatedTask, index) => {
+    const newtask = [...tasks];
+    newtask[index] = updatedTask;
+    settasks(newtask);
+  }
+
+  const deleteTask = () => {
+    tasks.filter((_,i) => i != index)
+  }
+
   return (
-    <div>
-      <h1>DoneDash</h1>
-      <p>Your friendly task manager</p>
+    <div className="App">
+      <header>
+      <h1 className="title">DoneDash</h1>
+      <p className="tagline">Your friendly task manager</p>
+      </header>
       <Taskform addTask={addTask}/>
       <Tasklist tasks = {tasks} 
       updateTask = {updateTask} 
